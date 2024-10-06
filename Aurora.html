@@ -1,0 +1,500 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NASA Home Page</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #000;
+            color: #fff;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #000;
+            padding: 10px 20px;
+            position: relative;
+        }
+
+        .navbar-logo {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .navbar-logo img {
+            width: 40px;
+        }
+
+        .navbar-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .navbar-links a {
+            color: #fff;
+            text-decoration: none;
+            padding: 14px 20px;
+            text-transform: uppercase;
+        }
+        .explore-button {
+            background-color: transparent;
+            color: #fff;
+            border: none;
+            padding: 14px 20px;
+            text-transform: uppercase;
+            cursor: pointer;
+        }
+
+        .explore-button:hover {
+            background-color: #444;
+            transition: 0.3s;
+        }
+
+        .explore-sidebar {
+            display: none;
+            position: fixed;
+            top: 60px;
+            left: 0;
+            width: 200px;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-right: 1px solid #fff;
+            z-index: 1000;
+        }
+
+        .explore-sidebar h2 {
+            color: #fff;
+            margin-bottom: 10px;
+        }
+
+        .explore-sidebar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .explore-sidebar li {
+            margin-bottom: 10px;
+            border-bottom: 1px solid white;
+        }
+
+        .explore-sidebar a {
+            color: #fff;
+            text-decoration: none;
+            display: block;
+            padding: 10px;
+        }
+
+        .explore-sidebar a:hover {
+            background-color: #444;
+            transition: 0.3s;
+        }
+
+        .close-button {
+            color: white;
+            background-color: #444;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            float: right;
+            margin-bottom: auto;
+        }
+
+        .navbar-links a:hover {
+            background-color: #444;
+            transition: 0.3s;
+        }
+
+        .navbar-search {
+            display: flex;
+            left: 65px;
+            position: absolute;
+            align-items: center;
+            background-color: #000;
+            padding: 5px 10px;
+            border-radius: 10px;
+            margin-left: 50px;
+        }
+
+        .navbar-search input[type="search"] {
+            padding: 5px;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            width: 150px;
+            background-color: #000;
+            color: #fff;
+        }
+
+        .navbar-search button {
+            background-color: #000;
+            color: white;
+            border: none;
+            padding: 5px;
+            cursor: pointer;
+        }
+
+        .hero {
+            position: relative;
+            text-align: center;
+            background-color: #000;
+        }
+
+        .hero-text {
+            position: absolute;
+            top: 50%;
+            left: 20px;
+            font-size: 45px;
+            transform: translateY(-50%);
+            color: #fff;
+            font-weight: bold;
+            font-family: 'Helvetica', Arial;
+            z-index: 1;
+            text-align: left;
+        }
+
+        .content {
+            padding: 20px;
+            text-align: left;
+            font-size: 30px;
+            font-family: 'Helvetica', sans-serif;
+            color: #fff;
+            background-color: #000;
+        }
+
+        .explore-button {
+            background-color: transparent;
+            color: #fff;
+            border: none;
+            padding: 14px 20px;
+            text-transform: uppercase;
+            cursor: pointer;
+        }
+
+        .explore-button:hover {
+            background-color: #444;
+            transition: 0.3s;
+        }
+
+        .explore-sidebar {
+            display: none;
+            position: fixed;
+            top: 60 px;
+            left: 0;
+            width: 200px;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-right: 1px solid #fff;
+            z-index: 1000;
+        }
+
+        .explore-sidebar h2 {
+            color: #fff;
+            margin-bottom: 10px;
+        }
+
+        .explore-sidebar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .explore-sidebar li {
+            margin-bottom: 10px;
+            border-bottom: 1px solid white;
+        }
+
+        .explore-sidebar a {
+            color: #fff;
+            text-decoration: none;
+            display: block;
+            padding: 10px;
+        }
+
+        .explore-sidebar a:hover {
+            background-color: #444;
+            transition: 0.3s;
+        }
+
+        .close-button {
+            color: white;
+            background-color: #444;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            float: right;
+            margin-bottom: auto;
+        }
+
+        .navbar-links a:hover {
+            background-color: #444;
+            transition: 0.3s;
+        }
+
+        .navbar-search {
+            display: flex;
+            left: 65px;
+            position: absolute;
+            align-items: center;
+            background-color: #000;
+            padding: 5px 10px;
+            border-radius: 10px;
+            margin-left: 50px;
+        }
+        .back-to-home {
+            position: absolute;
+            top: 15px;
+            left: 3px;
+            background-color: #000;
+            color: #f7f7f7;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        
+        .back-to-home:hover {
+            background-color: #444;
+            opacity:0.5px;
+        }
+        .navbar-search input[type="search"] {
+            padding: 5px;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            width: 150px;
+            background-color: #000;
+            color: #fff;
+        }
+
+        .navbar-search button {
+            background-color: #000;
+            color: white;
+            border: none;
+            padding: 5px;
+            cursor: pointer;
+        }
+
+        .hero {
+            position: relative;
+            text-align: center;
+            background-color: #000;
+        }
+
+        .hero-text {
+            position: absolute;
+            top: 50%;
+            left: 20px;
+            font-size: 45px;
+            transform: translateY(-50%);
+            color: #fff;
+            font-weight: bold;
+            font-family: 'Helvetica', Arial;
+            z-index: 1;
+            text-align: left;
+        }
+        .hero {
+            position: relative;
+            text-align: center;
+            background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+        }
+        .hero-text {
+            position: absolute;
+            top: 50%;
+            left: 20px;
+            font-size: 45px;
+            transform: translateY(-50%);
+            color: white;
+            font-weight: bold;
+            font-family: 'Helvetica', Arial;
+            z-index: 1;
+            text-align: left;
+        }
+        .content {
+            padding: 20px;
+            text-align: left;
+            font-size: 30px;
+            font-family: 'Helvetica', sans-serif;
+            color: #fff;
+            background-color: #000;
+        }
+    </style>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <div class="navbar">
+        <button class="explore-button">
+            Explore
+            <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="navbar-search">
+            <i class="fa fa-caret-down"></i>
+            <input type="search" placeholder="Search...">
+        </div>
+        <div class="navbar-logo">
+            <img src="/static/nasa.png" alt="NASA Logo">
+        </div>
+        <div class="navbar-links">
+            <a href="gallery.html">Gallery</a>
+            <a href="#about">About</a>
+        </div>
+    </div>
+    <!-- Explore Button with onclick attribute -->
+
+    <a href="home.html" class="back-to-home">Back to Home</a>
+    <!-- Hero Section -->
+    <section class="hero">
+        <img src="/static/a2.jpg" alt="solar system" width="1500" height="400"class="solar-image"style="opacity:0.9px">    
+
+        <div class="hero-text">
+            Aurora Of Geomagnetic Storms
+        </div>
+    </section>
+<!-- About Section -->
+<div id="about" class="text-section" style="margin:15px;">
+    <div class="container"style="margin-left:15px;margin-right:15px;">
+        <h2 style="font-style:bold;margin-left:15px;margin-right:15px;">Aurora sightings   </h2>
+        <p style="margin-left:15px;margin-right:15px;font-family: 'Didot', Bodoni, serif;color:#C9C9C9;font-size:16px;">Three CMEs from 8 May reached Earth on 10 May 2024, causing severe to extreme geomagnetic storms with bright and very long-lasting aurorae.
+
+            In North America, aurorae were seen across the United States as far south as the Florida Keys,as well as from the Yucatán Peninsula in Mexico, The Bahamas, Jamaica, and Puerto Rico. The aurora was also seen in Hawaii.
+            
+            Aurorae were seen across Europe from as far south as Portugal, Spain,and Sardinia. Aurorae were also visible in Algeria and the Canary Islands in Africa.
+            
+            In Asia, aurorae could be seen from Turkey, Cyprus,Iran, Japan,northern India,South Korea, and across northern China, including near the cities of Urumqi and Beijing.</p>
+        <br>
+        <p style="margin-left:15px;margin-right:15px;font-family: 'Didot', Bodoni, serif;color:#c9c9c9;font-size:16px;">In Australia, aurorae were seen as far north as Townsville and Mackay in Queensland, while in the rest of the Southern Hemisphere aurorae were seen in New Zealand, Chile, Argentina, South Africa,[48] and as far north as New Caledonia, Uruguay, southern Brazil, and Namibia.
+
+            While aurorae were able to be seen on camera from many locations across the globe, at locations farther away from the poles where the aurora is less bright, the aurora can often appear desaturated, achromatic, or even invisible to the naked eye as a result of the Purkinje effect.
+            
+            Camera technology has improved since the last G5-class geomagnetic storm in 2003, with even standard cell phone cameras having enough sensitivity to pick up the colours of an aurora. Consequently, images of aurorae were spread widely across social media, with much public excitement being generated during the event. The ability to document aurorae at such a wide scale has provided a large opportunity to learn more about the phenomenon.</p>
+        <br>
+        <br>
+        </div>
+        <!-- Remove the container div wrapping around the .may section -->
+<!-- Remove flex display for stacking content vertically -->
+<div class="video-and-text" style="display: flex; justify-content: space-between; align-items: center;">
+    <div style="display: flex; flex-direction: column; align-items: left;">
+      <h2 style="text-align: left; font-size: 24px; font-weight: bold; color:#fff; margin-top: 0;margin-left:25px;">Etymology</h2>
+      <p style="text-align: left; font-size: 18px; font-family: 'Didot', Bodoni, serif; font-weight: 400; line-height: 1.5; color: #C9C9C9; letter-spacing: 0.5px;width:80%;margin-left:25px;">
+        The term aurora borealis was coined by Galileo in 1619, from the Roman Aurora, goddess of the dawn, and the Greek Boreas, god of the cold north wind.
+
+        The word aurora is derived from the name of the Roman goddess of the dawn, Aurora, who travelled from east to west announcing the coming of the Sun. Ancient Greek poets used the corresponding name Eos metaphorically to refer to dawn, often mentioning its play of colours across the otherwise dark sky (e.g., "rosy-fingered dawn").      </p>
+    </div>
+    <div class="image-container">
+        <div class="slideshow-container">
+            <div class="image-container">
+                <img class="slide active" src="/static/i1.gif" alt="gif1">
+                <img class="slide" src="/static/i2.gif" alt="gif2">
+                <img class="slide" src="/static/i3.png" alt="image3">  <!-- PNG image -->
+                <img class="slide" src="/static/i4.png" alt="image4">  <!-- PNG image -->
+            </div>
+        
+            <!-- Next and previous buttons -->
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        </div>
+        
+         <!-- Another GIF file -->
+      </div>
+  </div>
+
+    </div>
+</div>
+<div class="graph" style="background-color: #000; display: flex; flex-direction: row; align-items: center; padding: 20px;color:#f7f7f7">
+    <div style="width: 70%; padding: 20px;">
+      <h1 class="title" style="color: #F7f7f7;">Occurrence</h1>
+      <p class="intro" style="color: #C9C9C9;font-family: 'Didot', Bodoni, serif;padding:0.5px;word-spacing:0.5px;font-size:18px;">
+        Most auroras occur in a band known as the "auroral zone", which is typically 3° to 6° (approximately 330–660 km) wide in latitude and between 10° and 20° from the geomagnetic poles at all local times (or longitudes), most clearly seen at night against a dark sky. A region that currently displays an aurora is called the "auroral oval", a band displaced by the solar wind towards the night side of Earth. Auroras at the North Pole itself are rare due to it being on the Arctic Ocean, while auroras at the South Pole itself are very common and guaranteed to be visible.
+      </p>
+      <h2 style="color: #f7f7f7;">Forms</h2>
+      <p style="color: #C9C9C9;font-family: 'Didot', Bodoni, serif;padding:0.5px;word-spacing:0.5px;font-size:18px;">
+        The disturbance storm time index (Dst index) is a measure in the context of space weather.
+        A negative Dst index means that Earth's magnetic field is weakened. This is particularly
+        the case during solar storms, with a higher negative Dst index indicating a stronger solar storm.
+      </p>
+      <p style="color: #C9C9C9;font-family: 'Didot', Bodoni, serif;padding:0.5px;word-spacing:0.5px;font-size:18px;">
+       1. A mild glow, near the horizon. These can be close to the limit of visibility,[22] but can be distinguished from moonlit clouds because stars can be seen undiminished through the glow.
+        Patches or surfaces that look like clouds.<br>
+       2. Arcs curve across the sky.<br>
+       3. Rays are light and dark stripes across arcs, reaching upwards by various amounts.
+        Coronas cover much of the sky and diverge from one point on it.
+      </p>
+      
+    </div>
+    <div style="width: 30%; padding: 20px; text-align: center;">
+      <img class="graph-image" src="/static/aur.jpg" alt="Values of the three-hour Kp-index from 10–14 May 2024" style="width: 100%; height: auto;">
+    </div>
+  </div>
+
+    <script>
+        function toggleSidebar() {
+            var sidebar = document.getElementById("sidebar");
+            if (sidebar.style.display === "block") {
+                sidebar.style.display = "none";
+            } else {
+                sidebar.style.display = "block";
+            }
+        }
+        
+        let slideIndex = 0;
+        showSlides();
+        
+        function showSlides() {
+          let slides = document.getElementsByClassName("slide");
+          for (let i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";  
+          }
+          slideIndex++;
+          if (slideIndex > slides.length) {slideIndex = 1}
+          slides[slideIndex-1].style.display = "block";  
+          setTimeout(showSlides, 500); // Change image every 0.5 seconds
+        }
+        
+        // Add event listeners for swipe gestures
+        let slideshowContainer = document.querySelector('.slideshow-container');
+        let startX, endX;
+        
+        slideshowContainer.addEventListener('touchstart', (e) => {
+          startX = e.touches[0].clientX;
+        });
+        
+        slideshowContainer.addEventListener('touchend', (e) => {
+          endX = e.changedTouches[0].clientX;
+          if (endX - startX > 50) {
+            // Swipe left
+            plusSlides(-1);
+          } else if (endX - startX < -50) {
+            // Swipe right
+            plusSlides(1);
+          }
+        });
+        function showSlides() {
+            let slides = document.getElementsByClassName("slide");
+            for (let i = 0; i < slides.length; i++) {
+              slides[i].style.display = "none";  
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) {slideIndex = 1}
+            slides[slideIndex-1].style.display = "block";  
+            setTimeout(showSlides, 1200); // Change image every 1.2 seconds
+          }
+        
+
+    </script>
+</body>
+</html>

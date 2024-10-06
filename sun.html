@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Protest+Strike&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cookie&family=Creepster&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Sun</title>
+    <style>
+   
+        
+        .parallax {
+            background: url('/static/the sun.jpg') no-repeat fixed;
+            background-size: cover;
+            height: 100vh;
+        }
+        
+        .parallax-layer {
+            transform: translateZ(-1px) scale(2);
+        }
+        .explore-button {
+            position: relative;
+            overflow: hidden;
+        }
+        .card {
+            perspective: 1000px;
+        }
+        
+        .card:hover .content {
+            transform: rotateY(15deg) rotateX(15deg);
+        }
+        
+        .content {
+            transition: transform 0.5s ease;
+            transform-style: preserve-3d;
+        }
+        .image-container {
+            flex-basis: 40%;
+            margin-right: 20px;
+            transition: transform 0.5s;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            overflow: hidden;
+            animation: pulse 2s infinite;
+          }
+          
+          .image-container:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+          }
+          
+          .image-container img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            filter: grayscale(100%);
+            transition: filter 0.5s ease-in-out; /* Add transition effect */
+        }
+        
+        .image-container img:hover {
+            filter: grayscale(0);
+            transition: filter 0.5s ease-in-out;
+        }
+          
+          @keyframes pulse {
+            0% {
+              transform: scale(1);
+            }
+            50% {
+              transform: scale(1.1);
+            }
+            100% {
+              transform: scale(1);
+            }
+          }
+          .content {
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.2s;
+          }
+          
+          .content:hover {
+            background-color: #f7f7f7;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+          }
+          
+          .content h1 {
+            font-size: 3em;
+            font-weight: bold;
+            margin-bottom: 20px;
+            animation: slide-in 1s;
+          }
+          
+          .content p {
+            font-size: 1.2em;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            transition: color 0.2s;
+          }
+          
+          .content:hover p {
+            color: #666;
+          }
+          
+          @keyframes slide-in {
+            0% {
+              transform: translateX(-100%);
+            }
+            100% {
+              transform: translateX(0);
+            }
+          }
+        .explore-button:hover::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 300%;
+            height: 300%;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            animation: ripple 1s ease-out;
+        }
+        
+        @keyframes ripple {
+            100% {
+                transform: translate(-50%, -50%) scale(1);
+                opacity: 0;
+            }
+        }
+<!--comments -->     
+        .explore-sidebar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .explore-sidebar li {
+            margin-bottom: 15px; /* Increase spacing between the items */
+            padding-bottom: 5px; /* Add some padding to the bottom */
+            border-bottom: 1px solid white;
+            font-family:popins;
+        }
+        
+        /* Add hover effect for the sidebar list items */
+        .explore-sidebar a:hover {
+            background-color: #666; /* Change hover color */
+            color: #ADD8E6;
+            transition: 0.3s ease; /* Smooth transition */
+        }
+        
+        /* Change the color of a clicked (touched) list item */
+        .explore-sidebar a:active {
+            background-color: #888; /* Change the color to grey when clicked */
+            color: #fff;
+            transition: 0.3s ease;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .explore-sidebar li:hover {
+            transform: translateX(10px);
+            transition: all 0.3s ease;
+        }
+        body {
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            position: relative;
+        }
+
+        .nasa-logo {
+            width: 60px;
+            height: auto;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .explore-button {
+            background-color: transparent;
+            color: #fff;
+            border: none;
+            padding: 14px 20px;
+            text-transform: uppercase;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .explore-button:hover {
+            background-color: #444;
+            transition: 0.3s;
+        }
+
+        .explore-sidebar {
+            display: none;
+            position: fixed;
+            top: 60px;
+            left: 0;
+            width: 200px;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-right: 1px solid #fff;
+            z-index: 1000;
+        }
+        
+        .explore-sidebar.active {
+            display: block;
+        }
+
+        .explore-sidebar h2 {
+            color: #fff;
+            margin-bottom: 10px;
+        }
+
+        .explore-sidebar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .explore-sidebar li {
+            margin-bottom: 10px;
+            border-bottom: 1px solid white;
+        }
+
+        .explore-sidebar a {
+            color: #fff;
+            text-decoration: none;
+            display: block;
+            padding: 10px;
+        }
+
+        .explore-sidebar a:hover {
+            background-color: #444;
+            transition: 0.3s;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+        .close-button {
+            color: white;
+            background-color: #444;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            float: right;
+            margin-bottom: auto;
+        }
+
+        nav ul li {
+            display: inline-block;
+            margin: 0 10px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        main {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 50px;
+        }
+
+        .sun-info {
+            max-width: 50%;
+        }
+
+        .sun-info h1 {
+            font-size: 60px;
+            margin-bottom: 20px;
+        }
+        .inner-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .sun-info p {
+            font-size: 20px;
+            line-height: 1.5;
+        }
+
+        .sun-image img {
+            width: 400px;
+            height: auto;
+        }
+        .popup {
+            position: fixed;
+            top: 20%;
+            right: -300px;
+            background-color: #333;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 10px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 18px;
+            transition: right 0.5s ease;
+            z-index: 1001;
+        }
+
+        .popup.show {
+            right: 20px;
+        }
+        .content {
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            font-size: 3em;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .content h1 {
+            color: black; /* Or any other color that contrasts well with your background */
+            font-size: 3em;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .sunsolar {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+          }
+          
+          .image-container {
+            flex-basis: 40%;
+            margin-right: 20px;
+          }
+          
+          .image-container img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+          }
+          
+          .text-container {
+            flex-basis: 55%;
+          }
+          
+          .text-container h1 {
+            margin-top: 0;
+          }
+          
+          .text-container p {
+            margin-bottom: 20px;
+          }
+
+        p {
+            font-size: 1.2em;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            color: #555;
+        }
+      
+        .close-button {
+            color: white;
+            background-color: #444;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            float: right;
+            margin-bottom: auto;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <!-- NASA logo centered at the top -->
+        <img src="/static/nasa.png" alt="NASA Logo" class="nasa-logo">
+        
+        <!-- Explore button moved to the right -->
+        <button class="explore-button" onclick="toggleSidebar()">Explore</button>
+
+        <nav>
+            <ul>
+                <li><a href="#cont">Overview</a></li>
+                <li><a href="#solar">Roles</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="solar.html">Our Solar System</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="explore-sidebar">
+        <button class="close-button" onclick="toggleSidebar()">Close</button>
+        <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="earth.html">The Earth</a></li>
+            <li><a href="solar.html">The Solar System</a></li>
+        </ul>
+    </div>
+
+    <main>
+        <div class="sun-info">
+            <h1 class="title" style="color:#FF8C00; font-family: Protest Strike, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-weight: 400;
+  font-style: normal;">The Sun</h1>
+            <p style="color: #fff;font-family:'Roboto', sans-serif;">The Sun is the star at the center of our solar system and the primary source of light and energy for our planet.</p>
+            <p style="color: #fff;font-family:'Roboto', sans-serif;">The Sun is a massive ball of hot, glowing gas, primarily composed of hydrogen and helium.</p>
+          </div>
+        <div class="sun-image">
+            <div id="modelContainer" style="width: 800px; height: 600px; transform: translateX(200px) scale3d(1, 1, 1);"></div>
+            <div id="popupMessage" class="popup">Drag and move Sun</div>
+
+        </div>
+    </main>
+
+    <div class="content" id="cont">
+        <div class="content">
+            <h1>Overview</h1>
+            <p>The Sun's gravity holds the solar system together, keeping everything – from the biggest planets to the smallest particles of debris – in its orbit. The connection and interactions between the Sun and Earth drive the seasons, ocean currents, weather, climate, radiation belts, and auroras. Though it is special to us, there are billions of stars like our Sun scattered across the Milky Way galaxy. The Sun has many names in many cultures. The Latin word for Sun is “sol,” which is the main adjective for all things Sun-related: solar.</p>
+        
+            <h1>Pop Culture</h1>
+            <p>The Sun has inspired us since ancient times. It’s central to mythology and religion in cultures around the world, including the ancient Egyptians, the Aztecs of Mexico, Native American tribes of North and South America, the Chinese, and many others.</p>
+            <p>Countless musicians have written songs about the Sun. The Beatles had a hit in 1969 with “Here Comes the Sun.” Other popular songs that reference the Sun include: “Walkin’ on the Sun” by Smashmouth; “Ain’t No Sunshine” by Bill Withers; “Walking on Sunshine” by Katrina and the Waves; “Pocketful of Sunshine” by Natasha Bedingfield; and “Let the Sunshine In” by the Fifth Dimension.</p>
+            <p>If you're Superman or a fellow Kryptonian of comic book fame, your powers are heightened by the yellow glow of our Sun. There are several science fiction films featuring the Sun in the storyline.</p>
+        </div>
+        <div class="content">
+          <div  class="sunsolar"id="solar">
+            <div class="image-container">
+                <img src="/static/field.png" alt="Solar Field" class="card" style="width: 100%; height: auto;">
+              </div>
+              <div class="text-container">
+            <h1>The Sun's Role in Geomagnetic Storms</h1>
+            <p>The Sun plays a central role in geomagnetic storms (also known as solar storms) by releasing massive bursts of energy and charged particles into space, which can significantly affect Earth's magnetosphere. These storms are primarily caused by two solar phenomena: <strong>solar flares</strong> and <strong>coronal mass ejections (CMEs)</strong>. Here's how they contribute to geomagnetic storms:</p>
+            
+            <h2>1. Solar Flares</h2>
+            <p>Solar flares are intense bursts of radiation that occur when magnetic energy in the Sun’s atmosphere is suddenly released. These flares can send a large amount of high-energy particles and X-rays toward Earth at the speed of light, leading to disturbances in the Earth's ionosphere. This can cause radio signal disruptions, GPS errors, and affect satellite operations. However, solar flares alone do not trigger the most intense geomagnetic storms.</p>
+
+              </div>
+        </div>
+        <h2>2. Coronal Mass Ejections (CMEs)</h2>
+            <p>CMEs are massive clouds of solar plasma and magnetic fields that are ejected from the Sun’s corona. When a CME is directed towards Earth, it can take about 1-3 days to reach us. Upon arrival, the CME interacts with Earth's magnetosphere, compressing it and injecting energy into the system.</p>
+            <p>When a CME collides with Earth’s magnetic field, it can disturb the magnetosphere, causing a <strong>geomagnetic storm</strong>. This happens when the charged particles from the CME cause fluctuations in Earth's magnetic field, generating electrical currents in the atmosphere.</p>
+            <h2>3. Solar Wind</h2>
+            <p>The solar wind, a constant flow of charged particles (electrons, protons) emitted from the Sun’s corona, plays a background role in geomagnetic storms. During periods of heightened solar activity, such as during a CME, the density, speed, and pressure of the solar wind increase. If the solar wind carries a southward magnetic field, it can more easily interact with Earth's magnetic field, intensifying the geomagnetic storm.</p>
+            
+            <h2>4. Impact on Earth's Magnetosphere</h2>
+            <p>When the CME or solar wind reaches Earth's magnetosphere, it distorts the magnetic field, leading to geomagnetic disturbances. These disturbances can cause:</p>
+            <ul>
+                <li><strong>Auroras (Northern and Southern Lights):</strong> The charged particles from the Sun excite gases in Earth’s upper atmosphere, causing them to glow and create stunning auroras near the poles.</li>
+                <li><strong>Geomagnetic Induced Currents (GICs):</strong> These currents can flow through power grids, pipelines, and other systems, potentially causing power outages and damaging infrastructure.</li>
+                <li><strong>Satellite Damage and Communication Disruption:</strong> Solar storms can damage satellites, disrupt GPS, and interfere with radio communications.</li>
+            </ul>
+            
+            <h2>Effects of Geomagnetic Storms</h2>
+            <ul>
+                <li><strong>Power Grid Failures:</strong> Intense geomagnetic storms can induce electric currents in power lines, potentially leading to large-scale blackouts.</li>
+                <li><strong>Satellite Disruptions:</strong> Radiation and high-energy particles from CMEs can damage satellites, disrupt communication, and degrade satellite-based navigation systems.</li>
+                <li><strong>Radiation Exposure:</strong> High-altitude flights and astronauts in space missions are more exposed to harmful radiation during these storms.</li>
+                <li><strong>Auroras:</strong> One of the most visually stunning effects of geomagnetic storms is the appearance of auroras, which are caused by interactions between the charged solar particles and Earth's atmosphere.</li>
+            </ul>
+        </div>
+        </div>
+        
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+    <script>
+        function toggleSidebar() {
+            var sidebar = document.querySelector('.explore-sidebar');
+            sidebar.classList.toggle('active');
+        }
+        
+        // Scene Setup
+        const container = document.getElementById('modelContainer');
+        const width = container.clientWidth;
+        const height = container.clientHeight;
+    
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer();
+        renderer.setSize(width, height);
+        container.appendChild(renderer.domElement);
+        
+        // Add a light source
+        const light = new THREE.DirectionalLight(0xffffff, 1);
+        light.position.set(1, 1, 1).normalize();
+        scene.add(light);
+        
+        // Load 3D Model
+        const loader = new THREE.GLTFLoader();
+        let model;
+        
+        loader.load('/static/Harsha Sun.glb', function(gltf) {
+            model = gltf.scene;
+            scene.add(model);
+            model.position.set(0, 0, 0);  // Positioning the model
+            camera.position.z = 5;        // Adjust camera distance from the model
+            renderer.render(scene, camera);
+        }, undefined, function(error) {
+            console.error('An error occurred while loading the model:', error);
+        });
+        
+        // Variables to handle interaction
+        let isDragging = false;
+        let previousMousePosition = { x: 0, y: 0 };
+    
+        // Event Listeners for interaction
+        container.addEventListener('mousedown', (event) => {
+            isDragging = true;
+        });
+    
+        container.addEventListener('mousemove', (event) => {
+            if (isDragging) {
+                const deltaX = event.clientX - previousMousePosition.x;
+                const deltaY = event.clientY - previousMousePosition.y;
+                
+                if (model) {
+                    // Rotate the model based on mouse movement
+                    model.rotation.y += deltaX * 0.01;  // Horizontal rotation
+                    model.rotation.x += deltaY * 0.01;  // Vertical rotation
+                }
+            }
+            previousMousePosition = {
+                x: event.clientX,
+                y: event.clientY
+            };
+        });
+    
+        container.addEventListener('mouseup', () => {
+            isDragging = false;
+        });
+    
+        container.addEventListener('mouseleave', () => {
+            isDragging = false;
+        });
+    
+        // Handle Touch Events for Mobile
+        container.addEventListener('touchstart', (event) => {
+            isDragging = true;
+            previousMousePosition.x = event.touches[0].clientX;
+            previousMousePosition.y = event.touches[0].clientY;
+        });
+    
+        container.addEventListener('touchmove', (event) => {
+            if (isDragging && model) {
+                const deltaX = event.touches[0].clientX - previousMousePosition.x;
+                const deltaY = event.touches[0].clientY - previousMousePosition.y;
+                
+                model.rotation.y += deltaX * 0.01;  // Horizontal rotation
+                model.rotation.x += deltaY * 0.01;  // Vertical rotation
+                model.rotation.x=Math.max(-Math.PI / 2, Math.min(Math.PI / 2, model.rotation.x));
+    
+                previousMousePosition.x = event.touches[0].clientX;
+                previousMousePosition.y = event.touches[0].clientY;
+            }
+        });
+    
+        container.addEventListener('touchend', () => {
+            isDragging = false;
+        });
+    
+        // Handle Window Resizing
+        window.addEventListener('resize', function() {
+            const width = container.clientWidth;
+            const height = container.clientHeight;
+            renderer.setSize(width, height);
+            camera.aspect = width / height;
+            camera.updateProjectionMatrix();
+        });
+    
+        // Rendering function
+        function render() {
+            requestAnimationFrame(render);
+            renderer.render(scene, camera);
+        }
+        render();
+        window.onload = function() {
+            setTimeout(function() {
+                const popup = document.getElementById('popupMessage');
+                popup.classList.add('show');
+
+                // Hide the pop-up after 5 seconds
+                setTimeout(function() {
+                    popup.classList.remove('show');
+                }, 5000);
+            }, 2000);
+        };
+    </script>
+
+    
+</body>
+</html>

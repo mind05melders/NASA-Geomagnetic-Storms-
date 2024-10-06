@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Protest+Strike&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cookie&family=Creepster&family=Ga+Maamli&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Earth</title>
+    <style>
+        .popup {
+            position: fixed;
+            top: 20%;
+            right: -300px;
+            background-color: #333;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 10px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 18px;
+            transition: right 0.5s ease;
+            z-index: 1001;
+        }
+
+        .popup.show {
+            right: 20px;
+        }
+        .explore-sidebar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        
+        .explore-sidebar li {
+            margin-bottom: 15px; /* Increase spacing between the items */
+            padding-bottom: 5px; /* Add some padding to the bottom */
+            border-bottom: 1px solid white;
+            font-family:popins;
+        }
+        .explore-sidebar li:hover {
+            transform: translateX(10px);
+            transition: all 0.3s ease;
+        }
+        /* Add hover effect for the sidebar list items */
+        .explore-sidebar a:hover {
+            background-color: #666; /* Change hover color */
+            color: #ADD8E6;
+            transition: 0.3s ease; /* Smooth transition */
+        }
+        
+        /* Change the color of a clicked (touched) list item */
+        .explore-sidebar a:active {
+            background-color: #888; /* Change the color to grey when clicked */
+            color: #fff;
+            transition: 0.3s ease;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            position: relative;
+        }
+
+        .nasa-logo {
+            width: 60px;
+            height: auto;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .explore-button {
+            background-color: transparent;
+            color: #fff;
+            border: none;
+            padding: 14px 20px;
+            text-transform: uppercase;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .explore-button:hover {
+            background-color: #444;
+            transition: 0.3s;
+        }
+
+        .explore-sidebar {
+            display: none;
+            position: fixed;
+            top: 60px;
+            left: 0;
+            width: 200px;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-right: 1px solid #fff;
+            z-index: 1000;
+        }
+        
+        .explore-sidebar.active {
+            display: block;
+        }
+
+        .explore-sidebar h2 {
+            color: #fff;
+            margin-bottom: 10px;
+        }
+
+        .explore-sidebar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .explore-sidebar li {
+            margin-bottom: 10px;
+            border-bottom: 1px solid white;
+        }
+
+        .explore-sidebar a {
+            color: #fff;
+            text-decoration: none;
+            display: block;
+            padding: 10px;
+        }
+
+        .explore-sidebar a:hover {
+            background-color: #444;
+            transition: 0.3s;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+        .close-button {
+            color: white;
+            background-color: #444;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            float: right;
+            margin-bottom: auto;
+        }
+
+        nav ul li {
+            display: inline-block;
+            margin: 0 10px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        main {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 50px;
+        }
+
+        .sun-info {
+            max-width: 50%;
+        }
+
+        .sun-info h1 {
+            font-size: 60px;
+            margin-bottom: 20px;
+        }
+        .inner-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .sun-info p {
+            font-size: 20px;
+            line-height: 1.5;
+        }
+
+        .sun-image img {
+            width: 400px;
+            height: auto;
+        }
+
+        .content {
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            font-size: 3em;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .content h1 {
+            color: black; /* Or any other color that contrasts well with your background */
+            font-size: 3em;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .sunsolar {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+          }
+          
+          .image-container {
+            flex-basis: 40%;
+            margin-right: 20px;
+          }
+          
+          .image-container img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+          }
+          
+          .text-container {
+            flex-basis: 55%;
+          }
+          
+          .text-container h1 {
+            margin-top: 0;
+          }
+          
+          .text-container p {
+            margin-bottom: 20px;
+          }
+
+        p {
+            font-size: 1.2em;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            color: #555;
+        }
+      
+        .close-button {
+            color: white;
+            background-color: #444;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            float: right;
+            margin-bottom: auto;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <!-- NASA logo centered at the top -->
+        <img src="/static/nasa.png" alt="NASA Logo" class="nasa-logo">
+        
+        <!-- Explore button moved to the right -->
+        <button class="explore-button" onclick="toggleSidebar()">Explore</button>
+
+        <nav>
+            <ul>
+                <li><a href="#cont">Overview</a></li>
+                <li><a href="#solar">Roles</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="solar.html">Our Solar System</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="explore-sidebar">
+        <button class="close-button" onclick="toggleSidebar()">Close</button>
+        <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="sun.html">The Sun</a></li>
+            <li><a href="solar.html">The Solar System</a></li>
+        </ul>
+    </div>
+
+    <main>
+        <div class="sun-info">
+            <h1 class="title" style="color:#3498DB; font-family: Protest Strike, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-weight: 400;
+  font-style: normal;">The Earth</h1>
+            <p style="color: #fff;">Earth is the third planet from the Sun and the only astronomical object known to harbor life.</p>
+            <p style="color: #fff;">This is enabled by Earth being an ocean world, the only one in the Solar System sustaining liquid surface water.</p>
+          </div>
+        <div class="sun-image">
+            <div id="modelContainer" style="width: 500px; height: 600px; margin-right:30px;transform: scale3d(1.5, 1.5, 1.5);"></div>
+            <div id="popupMessage" class="popup">Drag and move Earth</div>
+
+        </div>
+    </main>
+
+    <div class="content" id="cont">
+        <div class="content">
+            <h1>Overview</h1>
+            <p>Geomagnetic storms (also known as solar storms) are primarily driven by solar activity, but Earth plays a significant role in how these storms unfold and impact our planet. Here's a detailed breakdown of Earth's role in geomagnetic storms</p>
+        
+            
+        </div>
+        <div class="content">
+          <div  class="sunsolar"id="solar">
+            <div class="image-container">
+                <img src="/static/field.png" alt="Solar Field" style="width: 100%; height: auto;">
+              </div>
+              <div class="text-container">
+            <h1>The Earth's Role in Geomagnetic Storms</h1>
+            
+            <h2> 1. Earth's Magnetosphere as a Shield</h2>
+            <p><strong>Magnetosphere:</strong> Earth has a magnetic field that extends into space, forming the magnetosphere. This acts as a protective shield, deflecting most of the charged particles from the Sun (solar wind, solar flares, and coronal mass ejections).<br><br><strong>Interaction with Solar Wind:</strong> The magnetosphere is constantly bombarded by the solar wind (a stream of charged particles from the Sun), but during intense solar activity (like solar flares and CMEs), the flow of particles increases. This can compress Earth's magnetosphere and inject energy into it, triggering geomagnetic storms
+            </p>
+
+              </div>
+        </div>
+        <h2>2. Auroras: Earth's Atmospheric Response</h2>
+        <p><strong> Auroras:</strong> When charged particles from solar storms reach Earth's upper atmosphere (near the poles), they collide with atoms of oxygen and nitrogen. These collisions excite the atoms, causing them to release energy in the form of light, creating auroras (Northern and Southern Lights).<br><br>
+        <strong> Magnetic Reconnection:</strong> During solar storms, the Earth's magnetic field lines can reconnect with the Sun's magnetic field lines. This releases large amounts of energy into Earth's magnetosphere, intensifying auroras and driving geomagnetic activity.</p>
+     
+     <h2> 3. Impact on Power Grids and Technology</h2>
+        <p><strong> Geomagnetic Induced Currents (GICs):</strong> The interaction between solar particles and Earth's magnetosphere induces electric currents in the ground. These currents, known as geomagnetic induced currents, can flow through power grids and pipelines. This can lead to power surges, damage to transformers, and even large-scale power outages.<br><br>
+        <strong>Satellite and GPS Disruptions:</strong> Satellites in orbit are exposed to higher levels of radiation during geomagnetic storms. The increased particle flux can disrupt satellite communication, damage electronic components, and degrade GPS accuracy.</p>
+     
+        <h2>4. Effects on Earth's Atmosphere</h2>
+        <p><strong>Ionospheric Disturbances</strong> The ionosphere (a layer of Earth's atmosphere) is particularly sensitive to solar storms. Solar flares and CMEs can ionize the upper layers of the atmosphere, leading to disruptions in radio communications, especially high-frequency (HF) radio waves.<br><br>
+        <strong>Satellite Drag:</strong> The increased energy from solar storms heats and expands Earth's atmosphere, which increases drag on low-Earth orbit satellites. This can cause them to lose altitude and potentially re-enter the atmosphere prematurely if not corrected.</p>
+     
+      <h2>5. Earth's Exposure to Radiation</h2>
+       <p> <strong> Radiation Risks:</strong> Solar storms release high-energy particles that can penetrate Earth's atmosphere, posing radiation risks to astronauts, high-altitude aircraft, and satellites. During strong solar storms, flights at high latitudes (e.g., polar routes) may need to be rerouted to reduce radiation exposure.</p>
+     
+        </div>
+        </div>
+        
+    </div>
+    
+    <script>
+        function toggleSidebar() {
+            var sidebar = document.querySelector('.explore-sidebar');
+            sidebar.classList.toggle('active');
+        }
+    </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+        <script>
+            // Scene Setup
+            const container = document.getElementById('modelContainer');
+            const width = container.clientWidth;
+            const height = container.clientHeight;
+        
+            const scene = new THREE.Scene();
+            const camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 1000);
+            const renderer = new THREE.WebGLRenderer();
+            renderer.setSize(width, height);
+            container.appendChild(renderer.domElement);
+            
+            // Add a light source
+            const light = new THREE.DirectionalLight(0xffffff, 1);
+            light.position.set(1, 1, 1).normalize();
+            scene.add(light);
+            
+            // Load 3D Model
+            const loader = new THREE.GLTFLoader();
+            let model;
+            
+            loader.load('/static/earth.glb', function(gltf) {
+                model = gltf.scene;
+                scene.add(model);
+                model.position.set(0, 0, 0);  // Positioning the model
+                camera.position.z = 5;        // Adjust camera distance from the model
+                renderer.render(scene, camera);
+            }, undefined, function(error) {
+                console.error('An error occurred while loading the model:', error);
+            });
+            
+            // Variables to handle interaction
+            let isDragging = false;
+            let previousMousePosition = { x: 0, y: 0 };
+        
+            // Event Listeners for interaction
+            container.addEventListener('mousedown', (event) => {
+                isDragging = true;
+            });
+        
+            container.addEventListener('mousemove', (event) => {
+                if (isDragging) {
+                    const deltaX = event.clientX - previousMousePosition.x;
+                    const deltaY = event.clientY - previousMousePosition.y;
+                    
+                    if (model) {
+                        // Rotate the model based on mouse movement
+                        model.rotation.y += deltaX * 0.01;  // Horizontal rotation
+                        model.rotation.x += deltaY * 0.01;  // Vertical rotation
+                    }
+                }
+                previousMousePosition = {
+                    x: event.clientX,
+                    y: event.clientY
+                };
+            });
+        
+            container.addEventListener('mouseup', () => {
+                isDragging = false;
+            });
+        
+            container.addEventListener('mouseleave', () => {
+                isDragging = false;
+            });
+        
+            // Handle Touch Events for Mobile
+            container.addEventListener('touchstart', (event) => {
+                isDragging = true;
+                previousMousePosition.x = event.touches[0].clientX;
+                previousMousePosition.y = event.touches[0].clientY;
+            });
+        
+            container.addEventListener('touchmove', (event) => {
+                if (isDragging && model) {
+                    const deltaX = event.touches[0].clientX - previousMousePosition.x;
+                    const deltaY = event.touches[0].clientY - previousMousePosition.y;
+                    
+                    model.rotation.y += deltaX * 0.01;  // Horizontal rotation
+                    model.rotation.x += deltaY * 0.01;  // Vertical rotation
+                    model.rotation.x=Math.max(-Math.PI / 2, Math.min(Math.PI / 2, model.rotation.x));
+        
+                    previousMousePosition.x = event.touches[0].clientX;
+                    previousMousePosition.y = event.touches[0].clientY;
+                }
+            });
+        
+            container.addEventListener('touchend', () => {
+                isDragging = false;
+            });
+        
+            // Handle Window Resizing
+            window.addEventListener('resize', function() {
+                const width = container.clientWidth;
+                const height = container.clientHeight;
+                renderer.setSize(width, height);
+                camera.aspect = width / height;
+                camera.updateProjectionMatrix();
+            });
+        
+            // Rendering function
+            function render() {
+                requestAnimationFrame(render);
+                renderer.render(scene, camera);
+            }
+            
+            render();
+            window.onload = function() {
+                setTimeout(function() {
+                    const popup = document.getElementById('popupMessage');
+                    popup.classList.add('show');
+    
+                    // Hide the pop-up after 5 seconds
+                    setTimeout(function() {
+                        popup.classList.remove('show');
+                    }, 5000);
+                }, 2000);
+            };
+        </script>
+</body>
+</html>

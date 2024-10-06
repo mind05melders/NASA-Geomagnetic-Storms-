@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Trirong&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=FONT_NAME&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NASA Home Page</title>
+    <style>
+        body {
+            cursor: url('cursor.ani') 0 0, auto;
+            cursor: pointer;
+            animation: pulse 2s infinite;
+            transition: color 0.5s;
+          }
+          body:hover {
+            cursor: url('cursor.ani') 0 0, auto;
+            cursor: pointer;
+            color: #f5f5;
+          }
+          @keyframes pulse {
+            0% {
+              transform: scale(1);
+            }
+            50% {
+              transform: scale(1.2);
+            }
+            100% {
+              transform: scale(1);
+            }
+          }
+          .graph-image:hover {
+            transform: scale(0.9);
+            opacity: 0; 
+            animation: fadeIn 2s forwards;
+          }
+          @keyframes fadeIn {
+            to {
+              opacity: 1;
+            }
+          }
+          .graph-image {
+            transition: transform 0.5s;
+            cursor: pointer;
+          }
+          .graph-image {
+            transition: transform 0.5s;
+            cursor: pointer;
+          }
+          
+          .graph-image:hover {
+            transform: scale(1.1);
+          }
+          .graph-image:hover {
+            transform: scale(1.1);
+          }
+        .explore-sidebar li:hover {
+            transform: translateX(10px);
+            transition: all 0.3s ease;
+        }
+        .impact-video {
+            transition: filter 0.3s ease, transform 0.3s ease;
+        }
+        .text-section {
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.8);
+            transition: box-shadow 0.5s;
+        }
+        
+        .text-section:hover {
+            box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.9);
+        }
+     
+        
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 1s ease-out, transform 1s ease-out;
+        }
+        
+        .visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .impact-video {
+            transition: transform 0.6s ease-in-out;
+        }
+        
+        .impact-video:hover {
+            transform: scale(1.05) rotate(2deg);
+            box-shadow: 0px 20px 50px rgba(0, 0, 0, 0.5);
+        }
+        
+        /* Add spacing and hover effect for the list items */
+.explore-sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.explore-sidebar li {
+    margin-bottom: 15px; /* Increase spacing between the items */
+    padding-bottom: 5px; /* Add some padding to the bottom */
+    border-bottom: 1px solid white;
+    font-family:popins;
+}
+
+/* Add hover effect for the sidebar list items */
+.explore-sidebar a:hover {
+    background-color: #666; /* Change hover color */
+    color: #ADD8E6;
+    transition: 0.3s ease; /* Smooth transition */
+}
+
+/* Change the color of a clicked (touched) list item */
+.explore-sidebar a:active {
+    background-color: #888; /* Change the color to grey when clicked */
+    color: #fff;
+    transition: 0.3s ease;
+}
+body {
+    background: linear-gradient(-45deg, #000, #1a1a1a, #333333);
+    background-size: 200% 200%;
+    animation: gradientAnimation 15s ease infinite;
+}
+
+@keyframes gradientAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #000;
+            padding: 10px 20px;
+            position: relative;
+        }
+
+        .navbar-logo {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .navbar-logo img {
+            width: 40px;
+        }
+
+        .navbar-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .navbar-links a {
+            color: #fff;
+            text-decoration: none;
+            padding: 14px 20px;
+            text-transform: uppercase;
+        }
+        .explore-button {
+            background-color: transparent;
+            color: #fff;
+            border: none;
+            padding: 14px 20px;
+            text-transform: uppercase;
+            cursor: pointer;
+        }
+
+        .explore-button:hover {
+            background-color: #444;
+            transition: 0.3s;
+        }
+
+        .explore-sidebar {
+            display: none;
+            position: fixed;
+            top: 60px;
+            left: 0;
+            width: 200px;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-right: 1px solid #fff;
+            z-index: 1000;
+        }
+
+        .explore-sidebar h2 {
+            color: #fff;
+            margin-bottom: 10px;
+        }
+
+        .explore-sidebar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .explore-sidebar li {
+            margin-bottom: 10px;
+            border-bottom: 1px solid white;
+        }
+
+        .explore-sidebar a {
+            color: #fff;
+            text-decoration: none;
+            display: block;
+            padding: 10px;
+        }
+
+        .explore-sidebar a:hover {
+            background-color: #444;
+            transition: 0.3s;
+        }
+
+        .close-button {
+            color: white;
+            background-color: #444;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            float: right;
+            margin-bottom: auto;
+        }
+
+        .navbar-links a:hover {
+            background-color: #444;
+            transition: 0.3s;
+        }
+
+        .navbar-search {
+            display: flex;
+            left: 65px;
+            position: absolute;
+            align-items: center;
+            background-color: #000;
+            padding: 5px 10px;
+            border-radius: 10px;
+            margin-left: 50px;
+        }
+
+        .navbar-search input[type="search"] {
+            padding: 5px;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            width: 150px;
+            background-color: #000;
+            color: #fff;
+        }
+
+        .navbar-search button {
+            background-color: #000;
+            color: white;
+            border: none;
+            padding: 5px;
+            cursor: pointer;
+        }
+        .fade-in {
+            opacity: 0;
+            transition: opacity 1.5s ease-in;
+        }
+        .fade-in.visible {
+            opacity: 1;
+        }
+        
+        .explore-button, .navbar-links a, .hero-text {
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.7), 0 0 20px rgba(255, 255, 255, 0.5);
+        }
+        body {
+            background: linear-gradient(135deg, #000000, #1a1a1a, #333333);
+            background-size: 200% 200%;
+            animation: gradientAnimation 15s ease infinite;
+        }
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .hero {
+            position: relative;
+            text-align: center;
+            background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+        }
+
+        .hero-video {
+            width: 100%;
+            height: 70vh;
+            object-fit: cover;
+        }
+
+        .hero-text {
+            position: absolute;
+            top: 50%;
+            left: 20px;
+            font-size: 45px;
+            transform: translateY(-50%);
+            color: white;
+            font-weight: bold;
+            font-family: 'Helvetica', Arial;
+            z-index: 1;
+            text-align: left;
+        }
+
+        .content {
+            padding: 20px;
+            text-align: left;
+            font-size: 30px;
+            font-family: 'Helvetica', sans-serif;
+        }
+
+        .explore-button {
+            background-color: transparent;
+            color: #fff;
+            border: none;
+            padding: 14px 20px;
+            text-transform: uppercase;
+            cursor: pointer;
+        }
+
+        .explore-button:hover {
+            background-color: #444;
+            transition: 0.3s;
+        }
+
+        .explore-sidebar {
+            display: none;
+            position: fixed;
+            top: 60px;
+            left: 0;
+            width: 200px;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-right: 1px solid #fff;
+            z-index: 1000;
+        }
+
+        .explore-sidebar h2 {
+            color: #fff;
+            margin-bottom: 10px;
+        }
+
+        .explore-sidebar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .explore-sidebar li {
+            margin-bottom: 10px;
+            border-bottom: 1px solid white;
+        }
+        .navbar-links a {
+            position: relative;
+        }
+        .navbar-links a:after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background: white;
+            left: 0;
+            bottom: -4px;
+            transition: all 0.3s ease-in-out;
+            transform: scaleX(0);
+        }
+        .navbar-links a:hover:after {
+            transform: scaleX(1);
+        }
+        .explore-sidebar {
+            transition: transform 0.5s ease-in-out;
+        }
+        .explore-sidebar.open {
+            transform: translateX(0);
+        }
+        .explore-sidebar.closed {
+            transform: translateX(-100%);
+        }
+        
+        .explore-sidebar a {
+            color: #fff;
+            text-decoration: none;
+            display: block;
+            padding: 10px;
+        }
+
+        .explore-sidebar a:hover {
+            background-color: #444;
+            transition: 0.3s;
+        }
+
+        .close-button {
+            color: white;
+            background-color: #444;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            float: right;
+            margin-bottom: auto;
+        }
+
+        .text-section {
+            background-color: #000; /* Pure white background */
+            padding: 10px;
+            text-align: left;
+        }
+
+        .container {
+            max-width: calc(100% - 20px); /* 100% width minus 10px margin on both sides */
+            margin: 0 50px; /* 10px margin on both sides */
+            padding: 10px; /* Optional padding inside the container */
+        }
+        .may {
+            font-family: 'Great Vibes', sans-serif;
+            font-weight: bold;
+            font-style: italic;
+            font-size: 36px;
+        }
+        h2 {
+            margin-top: 0;
+            color: #000; 
+        }
+
+        p {
+            margin-bottom: 20px;
+            color: #000; /* Add this line to set the paragraph color to black */
+        }
+
+        /* Footer Section */
+        footer {
+            background-color: #000;
+            color: #fff;
+            padding: 100px;
+            text-align: left;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .footer-content .contact-item {
+            margin-bottom: 25px;
+        }
+
+        .contact-item i {
+            margin-right: 10px;
+        }
+
+        .contact-item a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .contact-item a:hover {
+            text-decoration: underline;
+        }
+
+        .footer-content a {
+            color: #fff;
+        }
+        .video-and-text, .graph-div {
+            transition: transform 0.5s ease-in-out;
+            animation: smooth-transition 0.5s ease-in-out;
+            animation-direction: normal;
+          }
+          
+          @keyframes smooth-transition {
+            0% {
+              transform: scale(0.8);
+            }
+            100% {
+              transform: scale(1.5);
+            }
+          }
+  .video-and-text.zoom-out {
+    transform: scale(0.8);
+  }
+
+  footer {
+    border-top: 1px solid #fff;
+    background-color: #000;
+    color: #fff;
+    padding: 100px;
+    text-align: left;
+}
+        /* Smooth Scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Button Styles */
+        .navbar-links a[href="#about"] {
+            cursor: pointer;
+        }
+
+        .navbar-links a[href="#contact"] {
+            cursor: pointer;
+        }
+   
+        
+          .video-and-text {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #000;
+            padding: 20px;
+          }
+          
+          .video-and-text p {
+            width: 40%;
+            margin: 0 20px;
+            color: #fff;
+          }
+          p:hover {
+            transform: scale(1.02);
+            color: #ffcc00; /* Changing text color on hover */
+        }
+        
+          .impact-video {
+            width: 60%;
+            height: 700px;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+          }
+          
+    </style>
+    <!-- Load Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <div class="navbar">
+        <button class="explore-button">
+            Explore
+            <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="navbar-search">
+           
+        </div>
+        <div class="navbar-logo">
+            <img src="/static/nasa.png" alt="NASA Logo">
+        </div>
+        <div class="navbar-links">
+            <a href="gallery.html">Gallery</a>
+            <a href="Aurora.html">Aurora</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+
+        </div>
+    </div>
+<!-- Explore Sidebar -->
+<div class="explore-sidebar" id="sidebar">
+    <button class="close-button" onclick="toggleSidebar()">Close</button>
+    <ul>
+        <li><a href="home.html">Home</a></li>
+        <li><a href="sun.html">The Sun</a></li>
+        <li><a href="earth.html">The Earth</a></li>
+        <li><a href="solar.html">The Solar System</a></li>
+    </ul>
+</div>
+
+    <!-- Hero Section with Video -->
+    <div class="hero">
+        <video class="hero-video" autoplay loop muted>
+            <source src="/static/vecteezy_andromeda-galaxy-zoom-in-animation-4k_25272382.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="hero-text" style=" font-family: Bebas Neue, sans-serif;font-size:46px;
+  font-weight: 400;font-style: normal;margin-left:565px;text-align: center;color:#660000;font-border:#f7f7f7;
+"> The May 2024<br>Geomagnetic Storms</div>
+    </div>
+
+<!-- About Section -->
+<div id="about" class="text-section">
+    <div class="container">
+        <h2 style="margin-top: 25px;font-size:28px;color:#F7f7f7;  font-family: 'Abril Fatface', serif;
+">Geomagnetic Storms</h2>
+        <p style="font-family:'Roboto', sans-serif;font-size: 18px;line-height: 1.5;color:#C9C9C9;">Geomagnetic storms are natural disturbances in Earth's magnetic field, caused by solar activity such as solar flares or coronal mass ejections (CMEs). These storms have the potential to affect various aspects of modern life, from satellite communications to power grids. In May 2024, Earth is expected to experience a series of geomagnetic storms, which will likely lead to a renewed focus on understanding their causes, impacts, and the measures needed to mitigate their effects.</p>
+        <p style="font-family:'Roboto', sans-serif; font-size: 18px;line-height: 1.5;color:#C9C9C9">The primary driver of geomagnetic storms is solar activity, especially when the Sun releases large bursts of energy in the form of solar flares or CMEs. These phenomena eject streams of charged particles into space. When a CME is directed towards Earth, these particles interact with Earth's magnetosphere—our planet's protective magnetic field—disrupting its stability. This interaction results in the shifting of magnetic field lines, causing geomagnetic storms.</p>
+        <br><br>
+        <div style="display: flex; justify-content: center; align-items: center; width: 800px; height: 500px; margin: 0 auto;">
+            <iframe width="800" height="450" src="https://www.youtube.com/embed/mIKRy-Xr6Ts" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <br>
+       
+        <br>
+        <br>
+        </div>
+        <div>
+        <!-- Remove the container div wrapping around the .may section -->
+<!-- Remove flex display for stacking content vertically -->
+<div class="video-and-text" style="display: flex; justify-content: space-between; align-items: center;">
+    <div style="display: flex; flex-direction: column; align-items: left;">
+      <h2 style="text-align: left; font-size: 24px; font-weight: bold; color:#fff; margin-top: 0;margin-right:10px;text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);  font-family: 'Abril Fatface', serif;
+">Solar Flares & Coronal Mass Ejections</h2>
+      <p style="text-align:left; font-size: 18px; font-family:'Roboto', sans-serif; font-weight: 400; line-height: 1.7; color: #C9E4CA; letter-spacing: 0.5px;width:80%;transition: all 0.3s ease;">
+        On 8 May 2024, a solar active region which had been assigned the NOAA region number 13664 (AR3664) produced an X1.0-class and multiple M-class solar flares and launched several coronal mass ejections (CMEs) toward Earth. On 9 May, the active region produced an X2.25- and X1.12-class flare each associated with a full-halo CME. On 10 May, the region produced an X3.98-class flare, and on 11 May at 01:23 UTC it produced another X-class flare of magnitude 5.4–5.7 with another asymmetrical full-halo CME. The region also caused an S1 solar radiation storm with spikes reaching S2. On 14 May, as the most active region 3664 rotated beyond the sun's western limb, the strongest flare occurred, an X8.7, causing level R3 (strong) radio blackouts.
+      </p>
+    </div>
+    <video class="impact-video" autoplay loop muted>
+      <source src="/static/SDO.720p.vp9.webm" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+</div>
+    </div>
+</div>
+<div class="graph" style="background-color: #000; display: flex; flex-direction: row; align-items: center; padding: 20px;">
+    <div style="width: 70%; padding: 20px;">
+      <h1 class="title" style="color: #f7f7f7;font-family: 'Abril Fatface', serif;">Geomagnetic storm</h1>
+      <p class="intro" style="color: #C9C9C9;font-family:'Roboto', sans-serif;">
+        As a result of the interplanetary magnetic field reaching a magnitude of 73 nanotesla (nT),
+        with the component along Earth's magnetic axis oriented south reaching as much as –50 nT,
+        the moderately high solar wind density, and the solar wind speed reaching 750–950 km/s
+        (470–590 mi/s) between 11 and 12 May (UTC time), the event was classified as a G5-class
+        geomagnetic storm (K<sub>p</sub> = 9), making it the most intense storm since the 2003 Halloween
+        solar storms. Several other CMEs were expected to reach Earth on 11 and 12 May.
+      </p>
+      <h2 style="color:#f7f7f7;font-family: 'Abril Fatface', serif;">Comparison to other geomagnetic storms</h2>
+      <p style="color: #C9C9C9;font-family:'Roboto', sans-serif;">
+        The disturbance storm time index (Dst index) is a measure in the context of space weather.
+        A negative Dst index means that Earth's magnetic field is weakened. This is particularly
+        the case during solar storms, with a higher negative Dst index indicating a stronger solar storm.
+      </p>
+      <p style="color: #C9C9C9;font-family:'Roboto', sans-serif;">
+        The 2003 Halloween solar storms had a peak Dst index of –383 nT, although a second storm on
+        20 November 2003 reached –422 nT while not reaching G5-class. The March 1989 geomagnetic storm
+        has been estimated to have had a peak Dst index of –589 nT, while the May 1921 geomagnetic storm
+        has been estimated to have had a peak Dst index of –907 ± 132 nT. Estimates for the peak Dst index of the
+        Carrington Event superstorm of 1859 are between –800 nT and –1750 nT.
+      </p>
+      <p style="color: #C9C9C9;font-family:'Roboto', sans-serif;">
+        The May 2024 solar storms reached a peak Dst index of –412 nT at 03:00 UTC on 11 May.
+      </p>
+      <p style="color: #C9C9C9;font-family:'Roboto', sans-serif;">
+        The A<sub>p</sub>-index of 11 May 2024 was 271, higher than the A<sub>p</sub>-indexes of 13 and 14 March 1989,
+        significantly higher than the A<sub>p</sub>-index of 29 and 30 October and 20 November 2003, and the second-highest ever recorded, after the A<sub>p</sub>-index of 13 November 1960, which was 280.
+      </p>
+    </div>
+    <div style="width: 30%; padding: 20px; text-align: center;">
+      <img class="graph-image" src="/static/graph.png" alt="Values of the three-hour Kp-index from 10–14 May 2024" style="width: 100%; height: auto;">
+    </div>
+  </div>
+    
+    <!-- Footer Section -->
+  
+    <!-- Footer Contact Section -->
+    <footer id="contact">
+        <div class="footer-content">
+            <div class="contact-item">
+                <i class="bi bi-telephone-forward"></i>
+                <a href="tel:+918618428753">+918618428753</a>
+            </div>
+            <br>
+            <br>
+            <br>
+            <div class="contact-item">
+                <i class="bi bi-envelope-at"></i>
+                <a href="mailto:mindmelders@gmail.com">mindmelders@gmail.com</a>
+            </div>
+            <br>
+            <br>
+            <br>
+            <div class="contact-item">
+                <i class="bi bi-github"></i>
+                <a href="https://github.com/mind05melders/mind-melders">GitHub:mind05melders
+                </a>
+                <br>
+                <br>
+                <br>
+            </div>
+        </div>
+        <div id="spaceapps" class="text-section">
+            <div class="container"><br>
+                <br><br>
+                <h3 style="font-size:20px;color:#F7f7f7; font-family: 'Abril Fatface', serif;text-align:center;">NASA Space Apps Challenge</h3>
+            </div>
+        </div>
+    </footer>
+    <script>
+         // Function to toggle the display of the sidebar
+         function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            sidebar.style.display = sidebar.style.display === 'block' ? 'none' : 'block';
+        }
+
+        // Event listener for the explore button
+        const exploreButton = document.querySelector('.explore-button');
+        exploreButton.addEventListener('click', toggleSidebar);
+        window.addEventListener('scroll', function() {
+            document.querySelectorAll('.fade-in').forEach(function(el) {
+                const rect = el.getBoundingClientRect();
+                if (rect.top < window.innerHeight && rect.bottom > 0) {
+                    el.classList.add('visible');
+                }
+            });
+        });
+        const videoAndText = document.querySelector('.video-and-text');
+        const graphDiv = document.querySelector('.graph-div');
+        
+        window.addEventListener('scroll', () => {
+          if (window.scrollY > window.innerHeight) { // adjust the value to your needs
+            videoAndText.classList.remove('zoom-out');
+            videoAndText.classList.add('zoom-in');
+            graphDiv.classList.remove('zoom-out');
+            graphDiv.classList.add('zoom-in');
+          } else {
+            videoAndText.classList.add('zoom-out');
+            videoAndText.classList.remove('zoom-in');
+            graphDiv.classList.add('zoom-out');
+            graphDiv.classList.remove('zoom-in');
+          }
+        });
+        window.addEventListener('scroll', function() {
+            var elements = document.querySelectorAll('.fade-in');
+            elements.forEach(function(element) {
+                var position = element.getBoundingClientRect().top;
+                var windowHeight = window.innerHeight;
+                if (position < windowHeight) {
+                    element.classList.add('visible');
+                }
+            });
+        });
+        <!--sercg tesults -->
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geomagnetic Storm Information and Image Gallery</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .gallery-container {
+            /* Add overflow-x: auto to enable horizontal scrolling */
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch; /* For iOS devices */
+        }
+        
+        .gallery-item {
+            /* Add transition and transform properties for swipe animation */
+            transition: transform 0.3s ease;
+            transform: translateX(0);
+        }
+        
+        .gallery-item.swiping {
+            /* Add this class when swiping to prevent hover effects */
+            pointer-events: none;
+        }
+        
+        .gallery-item.swiped {
+            /* Add this class when swipe is complete to reset transform */
+            transform: translateX(0);
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: rgba(0, 0, 0, 1); /* Solid black background */
+            color: #fff; /* White text color */
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        h1, h2, p {
+            color: #fff; /* Ensure all text is white */
+        }
+
+        /* Header styling */
+        h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        /* Content section styling */
+        .content-section {
+            margin-bottom: 40px;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.1); /* Slightly transparent white background */
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .content-section h2 {
+            font-size: 28px;
+            margin-bottom: 15px;
+        }
+
+        .content-section p {
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        /* Gallery section styling */
+        .gallery-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: space-around;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .gallery-item {
+            position: relative;
+            width: 300px;  /* Set the width */
+            height: 300px; /* Set the height to match width, making it a square */
+            overflow: hidden;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        .back-button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 18px;
+            color: #fff;
+            text-decoration: none;
+            background-color: #333;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+          }
+          
+          .back-button:hover {
+            background-color: #444;
+          }
+        .gallery-item:hover {
+            transform: scale(1.03);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Ensure the image fits within the square and is cropped if necessary */
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Hidden content displayed on hover */
+        .gallery-item .hover-content {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black */
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .gallery-item:hover .hover-content {
+            opacity: 1; /* Show content on hover */
+        }
+
+        .hover-content p {
+            padding: 10px;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        @media (max-width: 768px) {
+            .gallery-item {
+                width: 45%;
+                height: 45%; /* Make sure height matches for square dimensions */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .gallery-item {
+                width: 100%;
+                height: 100%; /* Full width and height for smaller screens */
+            }
+        }
+
+        .image-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+   <!-- Image Gallery Section -->
+<div class="content-section">
+    <h2>Image Gallery</h2>
+    <div class="gallery-container">
+        <div class="gallery-item">
+            <img src="/static/gall1.png" alt="Gallery Image 1">
+            <div class="hover-content">
+                <p>On 8 May 2024, the AR3664 produced an X1.0-class flare and CMEs toward Earth.</p>
+            </div>
+        </div>
+        <a href="home.html" class="back-button">Back to Home</a>
+        <div class="gallery-item">
+            <img src="/static/gall2.png" alt="Gallery Image 2">
+            <div class="hover-content">
+                <p>On 9 May 2024, AR3664 produced an X2.25-class flare with a full-halo CME.</p>
+            </div>
+        </div>
+        <div class="gallery-item">
+            <img src="/static/gall3.png" alt="Gallery Image 3">
+            <div class="hover-content">
+                <p>On 10 May 2024, AR3664 produced an X3.98-class flare, increasing solar activity.</p>
+            </div>
+        </div>
+        <div class="gallery-item">
+            <img src="/static/gall4.png" alt="Gallery Image 4">
+            <div class="hover-content">
+                <p>On 11 May 2024, an X5.4-class flare occurred, resulting in S1-S2 radiation storms.</p>
+            </div>
+        </div>
+        <div class="gallery-item">
+            <img src="/static/gall5.png" alt="Gallery Image 5">
+            <div class="hover-content">
+                <p>On 11 May 2024, an X5.4-class flare occurred, resulting in S1-S2 radiation storms.</p>
+            </div>
+        </div>
+        <div class="gallery-item">
+            <img src="/static/gall6.png" alt="Gallery Image 6">
+            <div class="hover-content">
+                <p>On 11 May 2024, an X5.4-class flare occurred, resulting in S1-S2 radiation storms.</p>
+            </div>
+        </div>
+        <div class="gallery-item">
+            <img src="/static/gall7.png" alt="Gallery Image 7">
+            <div class="hover-content">
+                <p>On 11 May 2024, an X5.4-class flare occurred, resulting in S1-S2 radiation storms.</p>
+            </div>
+        </div>
+        <div class="gallery-item">
+            <img src="/static/gall8.png" alt="Gallery Image 8">
+            <div class="hover-content">
+                <p>On 11 May 2024, an X5.4-class flare occurred, resulting in S1-S2 radiation storms.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="content-section">
+    <h1>Solar Irradiance Data Analysis for May 2024</h1>
+    <div class="image-container">
+        <img src="/static/maygraph.png" alt="Solar Irradiance Data" style="max-width: 800px; height: auto;">
+    </div>
+</div>
+    <script>
+        function goBack() {
+            window.location.href = 'home.html';
+            // add a smooth transition or animation here
+          }
+          const galleryContainer = document.querySelector('.gallery-container');
+const galleryItems = document.querySelectorAll('.gallery-item');
+
+let swipeStartX = 0;
+let swipeEndX = 0;
+let swipeDirection = '';
+let currentGalleryItem = 0;
+
+galleryContainer.addEventListener('touchstart', (e) => {
+    swipeStartX = e.touches[0].pageX;
+    galleryItems.forEach((item) => item.classList.add('swiping'));
+});
+
+galleryContainer.addEventListener('touchmove', (e) => {
+    swipeEndX = e.touches[0].pageX;
+    const deltaX = swipeEndX - swipeStartX;
+    swipeDirection = deltaX > 0 ? 'right' : 'left';
+    galleryItems.forEach((item) => {
+        item.style.transform = `translateX(${deltaX}px)`;
+    });
+});
+
+galleryContainer.addEventListener('touchend', () => {
+    const swipeDistance = Math.abs(swipeEndX - swipeStartX);
+    if (swipeDistance > 50) { // adjust this value to change the swipe threshold
+        if (swipeDirection === 'right') {
+            currentGalleryItem--;
+        } else {
+            currentGalleryItem++;
+        }
+        galleryItems.forEach((item, index) => {
+            if (index === currentGalleryItem) {
+                item.style.transform = `translateX(0)`;
+                item.classList.remove('swiping');
+                item.classList.add('swiped');
+            } else {
+                item.style.transform = `translateX(-100%)`;
+                item.classList.remove('swiped');
+            }
+        });
+    } else {
+        galleryItems.forEach((item) => {
+            item.style.transform = `translateX(0)`;
+            item.classList.remove('swiping');
+        });
+    }
+});
+    </script>
+</body>
+</html>
